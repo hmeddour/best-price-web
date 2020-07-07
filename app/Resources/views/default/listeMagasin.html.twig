@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+  {% block body %}
+    {% for magasin in listMagasin %}
+        {% set var = magasin.adressemagasin - position %}
+        {% if ((var|abs) < 5) %}
+            <div id={{ magasin.id }}>
+            <div name='Nom'>Nom={{magasin.nommagasin}}<div/>
+            <div name='Nom'>Addresse={{magasin.adressemagasin}}<div/>
+            <div name='Nom'>Tel={{magasin.tel}}<div/> <br />
+            <div/>
+        {% endif %}
+    {% endfor %}
+
+  {% endblock %}

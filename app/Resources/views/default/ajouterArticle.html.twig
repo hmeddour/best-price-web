@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+  {% block body %}
+      {% if article == null %}
+      {% else %}
+          <div name='libelle'>Nom={{article.libelle}}<div/> <br />
+          <div name='codebarres'>code_barres={{article.codebarres}}<div/> <br />
+          <div name='marque'>marque ={{article.marque}}<div/> <br />
+          <div name='type'>type ={{article.type}}<div/> <br />
+          <div name='description'>description={{article.description}}<div/> <br />
+          <div name='note'>note={{article.note}}<div/> <br />
+          <div name='poids'>poids={{article.poids}}<div/> <br />
+          <div name='couleur'>couleur={{article.couleur}}<div/> <br />
+          <div name='taille'>taille={{article.taille}}<div/> <br />
+
+      {% endif %}
+
+
+  {% endblock %}

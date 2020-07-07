@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+      {% block body %}
+          {% for favoris in listFavoris %}
+
+              <div name='Notification'>Notification={{ favoris.notification }}
+              <div/> <br/>
+              <div name='nom de l'article'>nom de l'article={{ favoris.idCapture.idArticle.libelle }}
+              <div/> <br/>
+
+          {% endfor %}
+
+      {% endblock %}

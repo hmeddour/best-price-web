@@ -1,0 +1,53 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Favoris
+ *
+ * @ORM\Table(name="favoris", indexes={@ORM\Index(name="id_utilisateur", columns={"id_utilisateur"}), @ORM\Index(name="id_capture", columns={"id_capture"})})
+ * @ORM\Entity
+ */
+class Favoris
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="notification", type="integer", nullable=false)
+     */
+    private $notification;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_utilisateur", referencedColumnName="id")
+     * })
+     */
+    private $idUtilisateur;
+
+    /**
+     * @var \AppBundle\Entity\Capture
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Capture")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_capture", referencedColumnName="id")
+     * })
+     */
+    private $idCapture;
+
+
+}
+

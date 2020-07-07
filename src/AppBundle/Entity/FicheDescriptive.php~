@@ -1,0 +1,54 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FicheDescriptive
+ *
+ * @ORM\Table(name="fiche_descriptive")
+ * @ORM\Entity
+ */
+class FicheDescriptive
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Libelle", type="string", length=255, nullable=false)
+     */
+    private $libelle;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="Poids", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $poids;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Couleur", type="string", length=255, nullable=false)
+     */
+    private $couleur;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateFabrication", type="datetime", nullable=false)
+     */
+    private $datefabrication;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+  {% block body %}
+      {% if user == null %}
+          <div> utilisateur non crée<div/> <br />
+      {% else %}
+          <div id={{ user.id }}>
+          <div name='Nom'>Nom={{user.nom}}<div/> <br />
+          <div name='Prenom'>Prenom={{user.prenom}}<div/> <br />
+          <div name='Tel'>Tel ={{user.numerotel}}<div/> <br />
+          <div name='email'>Email ={{user.email}}<div/> <br />
+          <div name='adresse'>adresse={{user.Addresse}}<div/> <br />
+          <div name='note'>note={{user.note}}<div/> <br />
+          <div/>
+      {% endif %}
+
+
+  {% endblock %}

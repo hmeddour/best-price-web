@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+  {% block body %}
+      {% if capture == null %}
+      {% else %}
+
+          <div name='nom'>Nom={{capture.Nom}}<div/> <br />
+          <div name='prenom'>Prenom={{capture.Prenom}}<div/> <br />
+          <div name='note'>note={{capture.Note}}<div/> <br />
+
+      {% endif %}
+
+
+  {% endblock %}

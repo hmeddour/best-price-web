@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% if articles == null %}
+        l'article n'existe pas !!
+    {% else %}
+        <table>
+            <thead>
+            <tr class="active">
+                <th style="color:blue;">Nom_Article</th>
+                <th style="color:blue;">Marque</th>
+                <th style="color:blue;">Prix</th>
+                <th style="color:blue;">Magasin</th>
+            </tr>
+            </thead>
+            {% for article in  articles %}
+                <tbody>
+                <tr id="{{ article.id }}">
+                    <td>{{ article.idArticle.libelle }}</td>
+
+
+                    <td> {{ article.idArticle.marque }}</td>
+
+                    <td>{{ article.prix }}</td>
+                    <td>{{ article.idMagasin.nommagasin }}</td>
+                </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
+
+

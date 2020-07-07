@@ -1,0 +1,45 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ListeArticle
+ *
+ * @ORM\Table(name="liste_article", indexes={@ORM\Index(name="id_liste", columns={"id_liste"})})
+ * @ORM\Entity
+ */
+class ListeArticle
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbr_article", type="integer", nullable=false)
+     */
+    private $nbrArticle;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_article", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idArticle;
+
+    /**
+     * @var \AppBundle\Entity\ListeCourses
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\ListeCourses")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_liste", referencedColumnName="id_liste")
+     * })
+     */
+    private $idListe;
+
+
+}
+

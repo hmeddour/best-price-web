@@ -1,0 +1,53 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CarteFidelite
+ *
+ * @ORM\Table(name="carte_fidelite", indexes={@ORM\Index(name="id_utilisateur", columns={"id_utilisateur"}), @ORM\Index(name="id_enseigne", columns={"id_enseigne"})})
+ * @ORM\Entity
+ */
+class CarteFidelite
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeBarresCarteFidelite", type="string", length=255, nullable=false)
+     */
+    private $codebarrescartefidelite;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_utilisateur", referencedColumnName="id")
+     * })
+     */
+    private $idUtilisateur;
+
+    /**
+     * @var \AppBundle\Entity\Enseigne
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Enseigne")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_enseigne", referencedColumnName="id")
+     * })
+     */
+    private $idEnseigne;
+
+
+}
+

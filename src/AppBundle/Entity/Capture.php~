@@ -1,0 +1,70 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Capture
+ *
+ * @ORM\Table(name="capture", indexes={@ORM\Index(name="id_article", columns={"id_article"}), @ORM\Index(name="id_utilisateur", columns={"id_utilisateur"}), @ORM\Index(name="id_magasin", columns={"id_magasin"})})
+ * @ORM\Entity
+ */
+class Capture
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Date", type="datetime", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="Prix", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $prix;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_utilisateur", referencedColumnName="id")
+     * })
+     */
+    private $idUtilisateur;
+
+    /**
+     * @var \AppBundle\Entity\Article
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Article")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_article", referencedColumnName="id")
+     * })
+     */
+    private $idArticle;
+
+    /**
+     * @var \AppBundle\Entity\Magasins
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Magasins")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_magasin", referencedColumnName="id")
+     * })
+     */
+    private $idMagasin;
+
+
+}
+

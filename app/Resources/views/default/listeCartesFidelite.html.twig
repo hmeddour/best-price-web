@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+              {% block body %}
+              {% for Carte in listCartesFidelite %}
+              <div name='codeBarres'>CodeBarres={{ Carte.codebarrescartefidelite}}
+                  <div/> <br/>
+                  {% endfor %}
+
+{% endblock %}

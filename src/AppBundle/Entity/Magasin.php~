@@ -1,0 +1,57 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Magasin
+ *
+ * @ORM\Table(name="magasin", indexes={@ORM\Index(name="id_enseigne", columns={"id_enseigne"}), @ORM\Index(name="id_enseigne_2", columns={"id_enseigne"})})
+ * @ORM\Entity
+ */
+class Magasin
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomMagasin", type="text", length=65535, nullable=false)
+     */
+    private $nommagasin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AdresseMagasin", type="string", length=255, nullable=false)
+     */
+    private $adressemagasin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Tel", type="string", length=255, nullable=false)
+     */
+    private $tel;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Enseigne
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Enseigne")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_enseigne", referencedColumnName="id")
+     * })
+     */
+    private $idEnseigne;
+
+
+}
+

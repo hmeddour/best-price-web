@@ -1,0 +1,50 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ListeCourses
+ *
+ * @ORM\Table(name="liste_courses", indexes={@ORM\Index(name="id_utilisateur", columns={"id_utilisateur"})})
+ * @ORM\Entity
+ */
+class ListeCourses
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_liste", type="text", length=65535, nullable=false)
+     */
+    private $nomListe;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_liste", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idListe;
+
+    /**
+     * @var \AppBundle\Entity\Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_utilisateur", referencedColumnName="id")
+     * })
+     */
+    private $idUtilisateur;
+
+
+}
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\ListeArticle" table="liste_article">
+    <indexes>
+      <index name="id_liste" columns="id_liste"/>
+    </indexes>
+    <id name="idArticle" type="integer" column="id_article"/>
+    <id name="idListe" association-key="true"/>
+    <field name="nbrArticle" type="integer" column="nbr_article" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <one-to-one field="idListe" target-entity="ListeCourses" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_liste" referenced-column-name="id_liste"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>
